@@ -1,0 +1,12 @@
+.openapi-generator-ignore
+README.md
+generated-sources/com/gain/java/knowledge/api/ApiUtil.java
+generated-sources/com/gain/java/knowledge/api/StudentApi.java
+generated-sources/com/gain/java/knowledge/api/StudentApiController.java
+generated-sources/com/gain/java/knowledge/api/model/Student.java
+generated-sources/org/openapitools/OpenAPI2SpringBoot.java
+generated-sources/org/openapitools/RFC3339DateFormat.java
+generated-sources/org/openapitools/configuration/HomeController.java
+pom.xml
+src/main/resources/application.properties
+src/main/resources/openapi.yaml

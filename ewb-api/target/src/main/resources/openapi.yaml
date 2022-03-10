@@ -1,0 +1,101 @@
+openapi: 3.0.0
+info:
+  description: The Student service
+  title: Student Service
+  version: 0.0.1
+servers:
+- url: /
+tags:
+- name: Student
+paths:
+  /add/student:
+    post:
+      operationId: addStudent
+      parameters:
+      - description: correlationId to track request.
+        explode: false
+        in: header
+        name: correlation-id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/StudentBody'
+      responses:
+        "201":
+          description: Created
+      summary: Add a new student.
+      tags:
+      - Student
+      x-contentType: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Student
+  /get/students:
+    get:
+      description: This is a Student service description
+      operationId: getAllStudent
+      parameters:
+      - description: ID of pet to fetch
+        explode: false
+        in: header
+        name: correlation-id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Student'
+                type: array
+          description: This means its ok.
+      summary: Get all students.
+      tags:
+      - Student
+      x-accepts: application/json
+      x-tags:
+      - tag: Student
+components:
+  requestBodies:
+    StudentBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Student'
+      description: A JSON object containing pet information
+      required: true
+  schemas:
+    Student:
+      description: This is the Student model.
+      example:
+        city: city
+        name: name
+        last_name: last_name
+        section: section
+        id: 0
+        first_name: first_name
+      properties:
+        id:
+          description: The ID of Student.
+          type: integer
+        first_name:
+          description: The FirstName of student.
+          type: string
+        last_name:
+          description: The LastName of Student.
+          type: string
+        section:
+          description: The Class Section of student.
+          type: string
+        city:
+          description: The City Name of Student.
+          type: string
+        name:
+          description: The Full Name of student.
+          type: string
+      type: object
